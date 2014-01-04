@@ -1,0 +1,15 @@
+﻿<div class="input-group input-group-sm">
+  <div class="input-group form-control" ng-disabled="isReadonly">
+    <span class="test-files-span" ng-show="!singleFile">{{uploadedFilesText}}
+    </span>
+    <a ng-show="singleFile" ng-href="{{fileUrl}}" target="_blank">
+      <span class="test-single-file-span">{{uploadedFilesText}}
+      </span>
+    </a>
+  </div>
+  <span class="input-group-btn">
+    <button type="button" class="btn btn-default" ng-disabled="isReadonly && noFiles" ng-click="openModal()">
+      <i class="glyphicon glyphicon-file"></i>
+    </button>
+  </span>
+</div>

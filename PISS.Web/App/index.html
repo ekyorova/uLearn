@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>PISS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="version" content="1.0.0#000000">
+
+  <style type="text/css">
+    #initial-loader
+    {
+      margin-top: 100px;
+    }
+
+    #initial-loader > h4
+    {
+      margin: 8px 0;
+      font-size: 15px;
+      font-family: inherit;
+      font-weight: bold;
+      line-height: 16px;
+      color: inherit;
+      vertical-align: middle;
+      text-align: center;
+      text-rendering: optimizelegibility;
+    }
+
+    #initial-loader > i
+    {
+      display: block;
+      background-image: url("/app/img/initial-loader.gif?_h=<%= md5('build/img/initial-loader.gif') %>");
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 32px;
+      margin: 5px;
+      padding: 0;
+    }
+  </style>
+  <link href="/app/build/css/styles.css?_h=<%= md5('build/css/styles.css') %>" rel="stylesheet" />
+</head>
+<body id="ng-app" ng-app="app">
+  <noscript>
+    <h2 style="text-align: center;">Страницата не може да бъде показана, ако сте спрели изпълнението на JavaScript</h2>
+  </noscript>
+
+  <div id="root" ui-view="rootView">
+    <div id="initial-loader">
+      <h4>Моля изчакайте...</h4>
+      <i></i>
+    </div>
+  </div>
+ 
+  <!--[if lt IE 9]>
+  <script src="/app/build/js/lib.ie8.js?_h=<%= md5('build/js/lib.ie8.js') %>"></script>
+  <!--<[endif]-->
+
+  <!--[if gte IE 9]><!-->
+  <script src="/app/build/js/lib.js?_h=<%= md5('build/js/lib.js') %>"></script>
+  <!--<![endif]-->
+
+  <script src="/app/build/js/app.js?_h=<%= md5('build/js/app.js') %>"></script>
+  <script src="/app/build/js/templates.js?_h=<%= md5('build/js/templates.js') %>"></script>
+  <script src="/app/build/js/test.js?_h=<%= md5('build/js/test.js') %>"></script>
+</body>
+</html>

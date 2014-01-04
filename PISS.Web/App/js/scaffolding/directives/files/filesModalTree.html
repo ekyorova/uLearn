@@ -1,0 +1,19 @@
+﻿<i class="glyphicon glyphicon-folder-open tree-image-folder"
+  ng-click="data.isExpanded = !data.isExpanded"
+  ng-class="{'glyphicon-folder-open': data.isExpanded, 'glyphicon-folder-close': !data.isExpanded }"
+  ng-show="data.children.length"></i>
+
+<a ng-show="!data.item.pending && !data.children" ng-href="{{data.item.url}}" target="_blank">
+  <span class="test-download-link">{{data.name}}
+  </span>
+</a>
+<span class="test-file-name" ng-show="data.item.pending">{{data.name}}
+</span>
+<span ng-show="data.children">{{data.name}}
+</span>
+<i class="glyphicon glyphicon-remove-circle tree-image-close"
+  ng-show="data.canRemove && !isReadonly" ng-click="remove(data)"></i>
+<ul class="tree" ng-show="data.isExpanded">
+  <li class="test-files-li" ng-repeat="data in data.children" ng-include="'scaffolding/directives/files/filesModalTree.html'">
+  </li>
+</ul>
