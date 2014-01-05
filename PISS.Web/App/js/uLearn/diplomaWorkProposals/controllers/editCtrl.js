@@ -27,7 +27,6 @@
       $scope.saveClicked = true;
 
       if ($scope.diplomaWorkProposalForm.$valid) {
-        $scope.diplomaWorkProposal.roles = $filter('filter')($scope.roles, {selected: true});
         $scope.diplomaWorkProposal.$save().then(function () {
           $state.go('diplomaWorkProposals.search');
         });
@@ -45,8 +44,7 @@
     '$filter',
     '$state',
     '$stateParams',
-    'DiplomaWorkProposal',
-    'Role'
+    'DiplomaWorkProposal'
   ];
   
   angular.module('diplomaWorkProposals')

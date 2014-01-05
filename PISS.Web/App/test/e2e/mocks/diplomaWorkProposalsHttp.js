@@ -36,14 +36,10 @@
 
     $httpBackendConfiguratorProvider
       .when('GET', '/api/diplomaWorkProposals?username&fullname&showActive&exact',
-        function ($params, $filter) {
+        function () {
           return [
             200,
-            $filter('filter')(diplomaWorkProposals, {
-              username: $params.username,
-              fullname: $params.fullname,
-              isActive: $params.showActive
-            })
+            diplomaWorkProposals
           ];
         })
       .when('GET', '/api/diplomaWorkProposals/:diplomaWorkProposalId',
@@ -85,7 +81,6 @@
           }
 
           $jsonData.diplomaWorkProposalId = ++nextDiplomaWorkProposalId;
-          $jsonData.hasPassword = $jsonData.password !== undefined && $jsonData.password !== '';
           diplomaWorkProposals.push($jsonData);
           
           return [200];
