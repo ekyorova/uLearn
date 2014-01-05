@@ -41,6 +41,28 @@
           problems: 'Задачи',
           limitations: 'Ограничения',
           term: 'Срок'
+        },
+        diplomaWorkReviews: {
+          diplomaWorkTitle: 'Тема:',
+          component: 'Компонент',
+          grade: 'Оценка',
+          common: 'Общи',
+          theoretical: 'Теоретична обосновка',
+          ownIdeas: 'Собствени идеи',
+          completion: 'Изпълнение на заданието',
+          style: 'Стил и оформление',
+          realisation:'Реализация',
+          structure: 'Структура и архитектура',
+          functionality: 'Функционалност',
+          reliability: 'Надеждност',
+          documentation: 'Документация',
+          еxperimentalPart: 'Експериментална част',
+          experimentalDetails: 'Описание на експеримента',
+          resultsPresentation: 'Представяне на резултатите',
+          resultsInterpretation: 'Интерпретация на резултатите',
+          commonMark:'Обща оценка',
+          generalOpinion: 'Обобщено мнение:',
+          questions: 'Въпроси:'
         }
       },
       users: {

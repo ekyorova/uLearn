@@ -74,7 +74,9 @@ module.exports = function (grunt) {
         'js/uLearn/users/*.js',
         'js/uLearn/users/**/*.js',
         'js/uLearn/diplomaWorkProposals/*.js',
-        'js/uLearn/diplomaWorkProposals/**/*.js'
+        'js/uLearn/diplomaWorkProposals/**/*.js',
+        'js/uLearn/diplomaWorkReviews/*.js',
+        'js/uLearn/diplomaWorkReviews/**/*.js'
       ],
       '<%= buildDir %>/js/templates.js': [
         'build/templates/*.js'
@@ -226,6 +228,11 @@ module.exports = function (grunt) {
         src: [ 'js/uLearn/diplomaWorkProposals/**/*.html' ],
         dest: '<%= buildDir %>/templates/diplomaWorkProposals.js',
         module: 'diplomaWorkProposals.templates'
+      },
+      diplomaWorkReviews: {
+        src: [ 'js/uLearn/diplomaWorkReviews/**/*.html' ],
+        dest: '<%= buildDir %>/templates/diplomaWorkReviews.js',
+        module: 'diplomaWorkReviews.templates'
       },
       scaffolding: {
         src: ['js/scaffolding/**/*.html'],

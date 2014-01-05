@@ -238,3 +238,14 @@ i.tree-image-close
 .breadcrumb-default:after {
   clear: both;
 }
+
+.spacer{
+  margin-top: 5px;
+}
+.td-padding-left{
+  padding-left: 30px !important;
+}
+
+.td-bold{
+  font-weight: bold;
+}

@@ -1,0 +1,160 @@
+﻿<div class="container page-content">
+  <ng-form name="diplomaWorkReviewForm" class="form-horizontal">
+    <div class="panel panel-default">
+    <div class="well panel-body form-body">
+  
+      <div class="form-group" ng-class="{'has-error': diplomaWorkReviewForm.diplomaWorkTitle.$invalid">
+        <label class="control-label col-sm-1" l10n-text="uLearn.diplomaWorkReviews.diplomaWorkTitle"></label>
+        <div class="col-sm-6">        
+           {{diplomaWorkTitle}}
+        </div>
+      </div>
+
+  <div class="row">
+
+    <div class="col-xs-6 col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+
+          <h4 l10n-text="uLearn.diplomaWorkReviews.common"></h4>
+          <hr>
+          <div class="row spacer">
+               <h5 class="col-sm-8 control-label" l10n-text="uLearn.diplomaWorkReviews.theoretical"></h5>
+               <div class="col-sm-4">
+                 <sc-float ng-class="form-control" required="required" ng-model="diplomaWorkReview.theoretical"></sc-float>
+               </div>
+          </div>
+           <div class="row spacer">
+              <h5 class="col-sm-8 control-label" l10n-text="uLearn.diplomaWorkReviews.ownIdeas"></h5>
+              <div class="col-sm-4">
+                <sc-float class="input-medium" required="required" ng-model="diplomaWorkReview.ownIdeas"></sc-float>
+              </div>
+          </div>
+           <div class="row spacer">
+             <h5 class="col-sm-8 control-label" l10n-text="uLearn.diplomaWorkReviews.completion"></h5>
+             <div class="col-sm-4">
+              <sc-float class="input-medium" required="required" ng-model="diplomaWorkReview.completion"></sc-float>
+            </div>
+            
+          </div>
+           <div class="row spacer">
+              <h5 class="col-sm-8 control-label" l10n-text="uLearn.diplomaWorkReviews.style"></h5>
+              <div class="col-sm-4">
+               <sc-float class="input-medium" required="required" ng-model="diplomaWorkReview.style"></sc-float>
+              </div>
+            
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /.col-lg-6 -->
+
+    <div class="col-xs-6 col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4 l10n-text="uLearn.diplomaWorkReviews.realization"></h4>
+          <hr>
+         <div class="row spacer">
+            <h5 class="col-sm-8 control-label" l10n-text="uLearn.diplomaWorkReviews.structure"></h5>
+            <div class="col-sm-4">
+              <sc-float class="input-small" ng-model="diplomaWorkReview.structure"></sc-float>
+            </div>
+          </div>  
+          <div class="row spacer">
+            <h5 class="col-sm-8 control-label" l10n-text="uLearn.diplomaWorkReviews.functionality"></h5>
+            <div class="col-sm-4">
+              <sc-float class="input-small" ng-model="diplomaWorkReview.functionality"></sc-float>
+            </div>
+          </div>
+          <div class="row spacer">
+            <h5 class="col-sm-8 control-label" l10n-text="uLearn.diplomaWorkReviews.reliability"></h5>
+            <div class="col-sm-4">
+              <sc-float class="input-small" ng-model="diplomaWorkReview.reliability"></sc-float>
+            </div>
+          </div>
+          <div class="row spacer">
+            <h5 class="col-sm-8 control-label" l10n-text="uLearn.diplomaWorkReviews.documentation"></h5>
+            <div class="col-sm-4">
+              <sc-text class="input-float" ng-model="diplomaWorkReview.documentation"></sc-float>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /.col-lg-6 -->
+
+    <div class="clearfix visible-xs"></div>
+
+    <div class="col-xs-6 col-sm-4">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h4 l10n-text="uLearn.diplomaWorkReviews.еxperimentalPart"></h4>
+          <hr>
+          <div class="row spacer">
+            <h5 class="col-sm-8 control-label" l10n-text="uLearn.diplomaWorkReviews.experimentalDetails"></h5>
+            <div class="col-sm-4">
+              <sc-text class="input-small" ng-model="diplomaWorkReview.experimentalDetails"></sc-text>
+            </div>
+          </div>
+         <div class="row spacer">
+            <h5 class="col-sm-8 control-label" l10n-text="uLearn.diplomaWorkReviews.resultsPresentation"></h5>
+            <div class="col-sm-4">  
+              <sc-text class="input-small" ng-model="diplomaWorkReview.resultsPresentation"></sc-text>
+            </div>
+          </div>
+          <div class="row spacer">
+            <h5 class="col-sm-8 control-label" l10n-text="uLearn.diplomaWorkReviews.resultsInterpretation"></h5>
+            <div class="col-sm-4">
+              <sc-text class="input-small" ng-model="diplomaWorkReview.resultsInterpretation"></sc-text>
+            </div>
+          </div>
+          <div class="row spacer">
+            </br>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-8"></div>
+    <div class="col-md-3">
+      <h5 class="col-sm-6 control-label" l10n-text="uLearn.diplomaWorkReviews.commonMark"></h5>
+      <div class="col-sm-2">
+           <input id="commonMark" type="text" disabled>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label class="control-label col-sm-2" l10n-text="uLearn.diplomaWorkReviews.generalOpinion"></label>
+      <div class="col-sm-6">
+        <sc-text-area ng-model="diplomaWorkReview.generalOpinion" rows="10"></sc-text-area>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="form-group">
+      <label class="control-label col-sm-2" l10n-text="uLearn.diplomaWorkReviews.questions"></label>
+      <div class="col-sm-6">
+        <sc-text-area ng-model="diplomaWorkReview.questions" rows="10"></sc-text-area>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+     <div class="btn-group pull-right">
+      <button id="saveBtn" type="button" class="btn btn-primary" ng-click="save()" l10n-text="users.edit.save"></button>
+      <button id="cancelBtn" type="button" class="btn btn-default" ng-click="cancel()" l10n-text="users.edit.cancel"></button>
+    </div>
+  </div>
+
+ 
+  </div>
+  </div>
+   </ng-form>
+</div>
