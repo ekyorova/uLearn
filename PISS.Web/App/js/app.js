@@ -9,6 +9,7 @@
     'scaffolding',
     'users',
     'diplomaWorkProposals',
+    'diplomaWorkReviews',
     'l10n',
     'l10n-tools',
     'l10nTexts_bg-bg'
@@ -29,7 +30,7 @@
       navigationConfigProvider
         .addItem({ text: 'navbar.diplomaWork', url: '/diplomaWork', items: [
           { text: 'navbar.diplomaWorkProposals', state: 'diplomaWorkProposals.search' },
-          { text: 'navbar.diplomaWorkReviews', url: '/reviews' }
+          { text: 'navbar.diplomaWorkReviews', state: 'diplomaWorkReviews.search' }
         ]})
         .addItem({ text: 'navbar.probationPractices', url: '/probationPractices', items: [
           { text: 'navbar.probationPracticeProposals', url: '/probationPractices' },
