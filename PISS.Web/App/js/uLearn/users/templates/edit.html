@@ -1,87 +1,94 @@
 ﻿<div class="container page-content">
-  <form name="userForm" novalidate class="form-horizontal well" role="form">
-    <div class="form-group" ng-class="{'has-error': saveClicked && (userExists || userForm.username.$invalid)}">
-      <label class="control-label col-sm-3" l10n-text="users.edit.username"></label>
-      <div class="col-sm-4">
+  <ng-form name="userForm">
+  <div class="panel panel-default">
+    <div class="panel-heading form-title"><strong l10n-text="users.edit.panelTitle"></strong></div>
+    <div class="well-sm panel-body form-body">
+	  <div class="row">
+      <div class="form-group col-sm-3">
+        <label class="control-label" l10n-text="users.edit.username"></label>
         <sc-text name="username"
-          required ng-pattern="/^[а-яА-Яa-zA-Z0-9_\.]{5,}$/"
-          ng-model="user.username" ng-disabled="isEdit">
+        required ng-pattern="/^[а-яА-Яa-zA-Z0-9_\.]{5,}$/"
+        ng-model="user.username" ng-disabled="isEdit">
         </sc-text>
-        <span id="usernameInvalid" class="help-block" ng-show="saveClicked && userForm.username.$invalid" l10n-text="users.edit.usernameInvalid"></span>
-        <span id="usernameExists" class="help-block" ng-show="userExists" l10n-text="users.edit.usernameExists"></span>
+        <span name="usernameValidationSpan" ng-show="userForm.username.$invalid" class="glyphicon glyphicon-warning-sign" title="{{form.subject.$error.required && 'Задължително поле'}}"></span>
       </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-3" l10n-text="users.edit.name"></label>
-      <div class="col-sm-4">
-        <sc-text ng-model="user.fullname"></sc-text>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-3" l10n-text="users.edit.comment"></label>
-      <div class="col-sm-4">
-        <textarea rows="3" class="form-control" ng-model="user.notes"></textarea>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-3" l10n-text="users.edit.entrance"></label>
-      <div class="col-sm-4">
-        <div class="checkbox">
-          <input type="checkbox" ng-model="setPassword">
-          <span l10n-text="users.edit.withPassAndUsername"></span>
+	  </div>
+	  <div class="row">
+        <div class="form-group col-sm-3">
+          <label class="control-label" l10n-text="users.edit.password"></label>
+          <input type="password" name="password" class="input-sm form-control" ng-required="true" ng-minlength="8" ng-model="password" />
+          <span name="passwordValidationSpan" ng-show="userForm.password.$invalid" class="glyphicon glyphicon-warning-sign" title="{{form.subject.$error.required && 'Задължително поле'}}"></span>
         </div>
-        <div class="checkbox">
-          <input type="checkbox" ng-model="setCertificate">
-          <span l10n-text="users.edit.withCertificate"></span>
+        <div class="form-group col-sm-3">
+          <label class="control-label" l10n-text="users.edit.repeatPass"></label>
+          <input type="password" name="confirmPassword" class="input-sm form-control" ng-model="confirmPassword">
+          <span name="confirmPasswordValidationSpan" ng-show="password != confirmPassword" class="glyphicon glyphicon-warning-sign" title="{{password != confirmPassword && 'Задължително поле'}}"></span>
         </div>
       </div>
-    </div>
-    <div class="form-group" ng-class="{'has-error': saveClicked && userForm.password.$invalid}"
-      ng-show="setPassword">
-      <label class="control-label col-sm-3" l10n-text="users.edit.password"></label>
-      <div class="col-sm-4">
-        <input type="password" name="password" class="input-sm form-control" ng-required="setPassword && !isEdit" ng-minlength="8" ng-model="password" />
-        <span id="passInvalid" class="help-block" ng-show="saveClicked && userForm.password.$invalid" l10n-text="users.edit.passMustBeMin8symbols"></span>
-      </div>
-    </div>
-    <div class="form-group" ng-class="{'has-error': saveClicked && (password !== confirmPassword)}"
-      ng-show="setPassword">
-      <label class="control-label col-sm-3" l10n-text="users.edit.repeatPass"></label>
-      <div class="col-sm-4">
-        <input type="password" name="confirmPassword" class="input-sm form-control" ng-model="confirmPassword">
-        <span id="confirmPassInvalid" class="help-block" ng-show="saveClicked && (password !== confirmPassword)" l10n-text="users.edit.doNotMatch"></span>
-      </div>
-    </div>
-    <div class="form-group" ng-class="{'has-error': saveClicked && userForm.certificate.$invalid}"
-      ng-show="setCertificate">
-      <label class="control-label col-sm-3" l10n-text="users.edit.certificate"></label>
-      <div class="col-sm-4">
-        <sc-text name="certificate" ng-required="setCertificate" ng-model="certificate"></sc-text>
-        <span class="help-block" ng-show="saveClicked && userForm.certificate.$invalid" l10n-text="users.edit.inputCertificate"></span>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-3" l10n-text="users.edit.roles"></label>
-      <div class="col-sm-4">
-        <div class="checkbox" ng-repeat="role in roles">
-          <input type="checkbox" ng-model="role.selected">
-          <span>{{role.name}}</span>
+      <div class="row">
+        <div class="form-group col-sm-2">
+          <label class="control-label" l10n-text="users.edit.firstName"></label>
+          <sc-text ng-model="user.firstName"></sc-text>
+        </div>
+	    <div class="form-group col-sm-2">
+          <label class="control-label" l10n-text="users.edit.secondName"></label>
+          <sc-text ng-model="user.secondName"></sc-text>
+        </div>
+        <div class="form-group col-sm-2">
+          <label class="control-label" l10n-text="users.edit.lastName"></label>
+          <sc-text ng-model="user.lastName"></sc-text>
         </div>
       </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-3" l10n-text="users.edit.active"></label>
-      <div class="col-sm-4">
-        <div class="checkbox">
-          <input type="checkbox" ng-model="user.isActive">
+      <div class="row">    
+        <div class="form-group  col-sm-2">
+          <label class="control-label" l10n-text="users.edit.email"></label>
+          <sc-text ng-model="user.email"></sc-text>
+        </div>
+        <div class="form-group col-sm-2">
+          <label class="control-label" l10n-text="users.edit.phone"></label>
+          <sc-text ng-model="user.phone"></sc-text>
         </div>
       </div>
-    </div>
-    <div class="form-group">
-      <div class="col-sm-offset-3 col-sm-4">
-        <button id="saveBtn" type="button" class="btn btn-primary" ng-click="save()" l10n-text="users.edit.save"></button>
-        <button id="cancelBtn" type="button" class="btn btn-default" ng-click="cancel()" l10n-text="users.edit.cancel"></button>
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label class="control-label" l10n-text="users.edit.address"></label>
+          <sc-text-area ng-model="user.address" rows="2"></sc-text>
+        </div>
+	  </div>	 
+      <div class="row">
+        <div class="form-group col-sm-3">
+          <label class="control-label" l10n-text="users.edit.type"></label>
+          <sc-select sc-select="{data: types}" ng-model="type"></sc-select>
+	    </div>
       </div>
-    </div>
-  </form>
+	
+      <div class="row" ng-show="type.id == 2">
+        <div class="form-group col-sm-3">
+          <label class="control-label" l10n-text="users.edit.facultyNumber"></label>
+  		  <sc-text ng-model="user.facultyNumber"></sc-select>
+        </div>
+        <div class="form-group col-sm-3">
+          <label class="control-label" l10n-text="users.edit.course"></label>
+          <sc-text ng-model="user.course"></sc-select>
+	    </div>
+      </div>
+	  <div class="row" ng-show="type.id == 4">
+        <div class="form-group col-sm-3">
+          <label class="control-label" l10n-text="users.edit.title"></label>
+	      <sc-select sc-select="{data: titles}" ng-model="user.title"></sc-select>
+        </div>
+        <div class="form-group col-sm-4">
+          <label class="control-label" l10n-text="users.edit.department"></label>
+		  <sc-select sc-select="{data: departments}" ng-model="user.department"></sc-select>
+	    </div>
+      </div>
+      <div class="form-group">
+        <div class="col-sm-offset-3 col-sm-4">
+          <button id="saveBtn" type="button" class="btn btn-primary" ng-click="save()" l10n-text="users.edit.save"></button>
+          <button id="cancelBtn" type="button" class="btn btn-default" ng-click="cancel()" l10n-text="users.edit.cancel"></button>
+        </div>
+      </div>
+	</div>
+	</div>
+    </ng-form>
 </div>

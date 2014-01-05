@@ -11,34 +11,46 @@
       }],
       users = [{
         userId: 1,
-        username: 'admin',
-        fullname: 'Administrator',
-        roles: roles.slice(),
-        isActive: true,
-        hasPassword: true
+        username: 'dkaludov',
+        firstName: 'Димитър',
+        secondName: 'Красимиров',
+        lastName: 'Калудов',
+        phone: '0883413535',
+        email: 'mitakyt@gmail.com',
+        address: 'Варна',
+        type: {
+          id: 2,
+          text: 'Студент'
+        },
+        facultyNumber: '61348',
+        course: 'Софтуерно Инженерство',
+        department: null,
+        title: null
       }, {
         userId: 2,
-        username: 'peter',
-        fullname: 'Peter Ivanov',
-        roles: roles.slice(),
-        isActive: true,
-        hasPassword: true
-      }, {
-        userId: 3,
-        username: 'georgi',
-        fullname: 'Georgi Petrov',
-        roles: roles.slice(),
-        isActive: true,
-        hasPassword: true
-      }, {
-        userId: 4,
-        username: 'test1',
-        fullname: 'iztrit',
-        roles: roles.slice(),
-        isActive: false,
-        certificateThumbprint: '1234'
+        username: 'admin',
+        firstName: 'Владо',
+        secondName: 'Владов',
+        lastName: 'Бабев',
+        phone: null,
+        email: null,
+        address: null,
+        type: {
+          id: 4,
+          text: 'Преподавател'
+        },
+        facultyNumber: null,
+        course: null,
+        department: {
+          id: 1,
+          text: 'Математика'
+        },
+        title: {
+          id: 3,
+          text: 'Доцент'
+        }
       }],
-      nextUserId = 5;
+      nextUserId = 3;
 
     $httpBackendConfiguratorProvider
       .when('GET', '/api/users?username&fullname&showActive&exact',
@@ -71,8 +83,6 @@
           if (userIndex === -1) {
             return [400];
           }
-
-          $jsonData.hasPassword = $jsonData.password !== undefined && $jsonData.password !== '';
           users[userIndex] = $jsonData;
           
           return [200];

@@ -23,6 +23,27 @@
     }
     $scope.roles = Role.query();
     $scope.saveClicked = false;
+    $scope.type = undefined;
+    $scope.a = 1;
+    $scope.$watch('type', function() {
+      $scope.a = 2;
+    });
+    $scope.types = [
+      {id:2, text: 'Студент'},
+      {id:3, text: 'Докторант'},
+      {id:4, text: 'Преподавател'}
+    ];
+    $scope.titles = [
+      {id:1, text: 'Асистент'},
+      {id:2, text: 'Главен асистент'},
+      {id:3, text: 'Доцент'},
+      {id:4, text: 'Професор'},
+      {id:5, text: 'Академик'}
+    ];
+    $scope.departments = [
+      {id:1, text: 'Математика'},
+      {id:2, text: 'Информатика'}
+    ];
     
     $q.all({
       user: $scope.user.$promise,
@@ -32,12 +53,8 @@
         role.selected =
           $filter('filter')(res.user.roles || [], {roleId: role.roleId}).length > 0;
       });
-      
-      $scope.setPassword = res.user.hasPassword;
       $scope.password = '';
       $scope.confirmPassword = '';
-      $scope.setCertificate = !!res.user.certificateThumbprint;
-      $scope.certificate = res.user.certificateThumbprint;
     });
 
     $scope.save = function () {

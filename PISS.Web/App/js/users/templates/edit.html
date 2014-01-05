@@ -7,11 +7,18 @@
           required ng-pattern="/^[а-яА-Яa-zA-Z0-9_\.]{5,}$/"
           ng-model="user.username" ng-disabled="isEdit">
         </sc-text>
-        <span id="usernameInvalid" class="help-block" ng-show="saveClicked && userForm.username.$invalid" l10n-text="users.edit.usernameInvalid"></span>
-        <span id="usernameExists" class="help-block" ng-show="userExists" l10n-text="users.edit.usernameExists"></span>
+        <span name="usernameValidationSpan" ng-show="userForm.username.$invalid" class="glyphicon glyphicon-warning-sign" title="{{form.subject.$error.required && 'Задължително поле'}}"></span>
       </div>
     </div>
     <div class="form-group">
+      <label class="control-label col-sm-3" l10n-text="users.edit.name"></label>
+      <div class="col-sm-4">
+        <sc-text ng-model="user.fullname"></sc-text>
+      </div>
+      <label class="control-label col-sm-3" l10n-text="users.edit.name"></label>
+      <div class="col-sm-4">
+        <sc-text ng-model="user.fullname"></sc-text>
+      </div>
       <label class="control-label col-sm-3" l10n-text="users.edit.name"></label>
       <div class="col-sm-4">
         <sc-text ng-model="user.fullname"></sc-text>
@@ -24,7 +31,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label class="control-label col-sm-3" l10n-text="users.edit.entrance"></label>
+      <label class="control-label col-sm-3" l10n-text="users.edit.Role"></label>
       <div class="col-sm-4">
         <div class="checkbox">
           <input type="checkbox" ng-model="setPassword">
