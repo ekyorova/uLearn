@@ -38,9 +38,7 @@ exports.manualLogin = function(username, password, callback) {
 		}
 	});
 };
-exports.test = function() {
-	res.send('ok',200);
-}
+
 exports.addNewUser = function(data, callback) {
 	var user = mongoose.model("User");
 	if (data.username === undefined) {
@@ -87,7 +85,8 @@ exports.addNewUser = function(data, callback) {
 
 exports.findByUsername = function(searchUsername, callback) {
 	var user = mongoose.model("User");
-	user.findOne({username : searchUsername}, function(error, result) {
+	console.log(searchUsername);
+	user.findOne(searchUsername, function(error, result) {
 		if (error) {
 			callback(error);
 		} else {
@@ -96,40 +95,27 @@ exports.findByUsername = function(searchUsername, callback) {
 	});
 }
 
-exports.updateAccount = function(id, data, callback) {
+exports.updateUser = function(data, callback) {
 	var user = mongoose.model("User");
-	if (data.username === undefined) {
-		callback("username-not-defined");
-	} else if (data.password === undefined) {
-		callback("password-not-defined");
-	} else if (data.usertype === undefined) {
-		callback("usertype-not-defined");
-	}
-	user.findOne({
-			username : data.username,
-			_id : {
-				$not : id}
-	}, function(error, result) {
-		if (result) {
-			if (result.username == req.session.user.username) {
-				callback("username-exists");
-			}
-		} else {
-			saltAndHash(data.password, function(hash) {
-				users.update({
-					_id : id
-				}, {
-					'username' : data.username,
-					'password' : hash,
-				}, function(error, result) {
-					if (error) {
-						callback(error);
-					} else {
-						callback(null, result);
-					}
-				});
-			});
+	 if (data.password === undefined) {
+			callback("password-not-defined");
 		}
+	user.findOne({
+		username : data.username,
+	}, function(error, result) {
+		saltAndHash(data.password, function(hash) {
+			user.update({
+				username : data.username
+			}, {
+				'password' : hash
+			}, function(error, result) {
+				if (error) {
+					callback(error);
+				} else {
+					callback(null, result);
+				}
+			});
+		});
 	});
 };
 
@@ -140,6 +126,19 @@ exports.getAllUsers = function(callback) {
 			callback(error);
 		} else {
 			callback(null, result);
+		}
+	});
+};
+
+exports.deleteUserByUsername = function(username, callback) {
+	var user = mongoose.model('User');
+	user.remove({
+		username : username
+	}, function(error, result) {
+		if (error) {
+			callback(error);
+		} else {
+			callback(null, result)
 		}
 	});
 };

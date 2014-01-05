@@ -1,7 +1,6 @@
 use user
 db.createCollection("username")
 db.createCollection("password")
-db.createCollection("email")
 db.createCollection("usertype")
 <!-- Multiple values("teacher", "phd", "student", "admin") -->
 db.createCollection("active")
@@ -142,6 +141,46 @@ db.createCollection("application", { <!-- Application for admission -->
 						fileName: "" <!--  Path to uploaded file  -->
 						status: <!-- Accepted or not accepted -->
 						})
+db.createCollection("thesisProposal", {<!-- предложение за дипломна работа -->
+		fileName : ""
+		consultant: ""
+		annotation: ""
+		goal: ""
+		tasks: ""
+		conditions: ""
+		realizationDate: ""
+		proposalDate: ""
+	})
+	
+db.createCollection("graduationWork" : {
+		thesisFilename : ""
+		directorOfStudies : {
+			type : mongoose.Schema.ObjectId,
+			ref : "Teacher"
+		},
+		reviewer : {
+			type : mongoose.Schema.ObjectId,
+			ref : "Teacher"
+		},
+		themeNameBg : ""
+		themeNameEn: ""
+		defenceDate: Data
+		themeNameEn: ""
+		defenced: {
+			type: Boolean
+		},
+		ratingThesis: "" <!-- Оценка на дипломна работа -->
+		ratingGeneral: ""
+		summaryBg: ""
+		summaryEn: ""
+	}),
+db.createCollection("reportAssignment": {
+		filename: ""
+		report: "",
+		reportDate: ""
+		participationCons: "" <!-- Participation of consultator in thesis -->
+		}
+	)
 
 
 

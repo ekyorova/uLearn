@@ -62,8 +62,30 @@ exports.addNewTeacher = function(data, callback) {
 	});
 };
 
-exports.updateAccount = function(id, data, callback) {
-	var user = mongoose.model("Teacher");
+exports.getAllUsers = function(callback) {
+	var user = mongoose.model('Teacher');
+	user.findOne(function(error, result) {
+		if (error) {
+			callback(error);
+		} else {
+			callback(null, result);
+		}
+	});
+};
+
+exports.deleteTeacherById = function(id, callback) {
+	var teacher = mongoose.model('Teacher');
+	teacher.remove({_id : id}, function(error, result) {
+		if (error) {
+			callback(error);
+		} else {
+			callback(null);
+		}
+	});
+};
+
+exports.updateTeacherData= function(id, data, callback){
+	var teacher = mongoose.model('Teacher');
 	if (data.firstName === undefined) {
 		callback("firstName-not-defined");
 	} else if (data.secondName === undefined) {
@@ -79,35 +101,25 @@ exports.updateAccount = function(id, data, callback) {
 	} else if (data.hireDate === undefined) {
 		callback("hireDate-not-defined");
 	}
-	user.findOne({
-		$and : [ {
-			_id : data._id
-		}, {
-			email : data.email
-		} ]
-	}, function(error, object) {
-		if (object) {
-			if (object.email == data.email) {
-				callback('email-exists');
+	teacher.update({_id:id}, 
+			{ $set: {
+				'firstName' : data.firstName,
+				'secondName' : data.secondName,
+				'lastName' : data.lastName,
+				'phone' : data.phone,
+				'email' : data.email,
+				'department' : data.department,
+				'hireDate' : data.hireDate,
+				'title' : data.title,
+				'address': data.address
 			}
-		} else {
-			if (!data.title) {
-				data.title = "";
-			}
-			if (!data.address) {
-				data.address = "";
-			}
-		}
-	});
-};
-
-exports.getAllUsers = function(callback) {
-	var user = mongoose.model('User');
-	user.find(function(error, result) {
-		if (error) {
-			callback(error);
-		} else {
-			callback(null, result);
-		}
-	});
+			},
+			function(error, result) {
+				if (error) {
+					console.log(error);
+					callback(error);
+				} else {
+					callback(null);
+				}
+	})
 };
