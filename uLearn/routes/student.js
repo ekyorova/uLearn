@@ -1,7 +1,7 @@
 var user = require('../models/user');
-var teacher = require('../models/teacher');
+var student = require('../models/student');
 
-exports.addTeacher = function(req, res) {
+exports.addStudent = function(req, res) {
 	var dataForUser = {
 		username : req.body.username,
 		password : req.body.password,
@@ -19,20 +19,28 @@ exports.addTeacher = function(req, res) {
 				if (findError) {
 					res.send(404, findError);
 				} else {
-					var dataForTeacher = {
+					var dataForStudent = {
 						_id : object._id,
 						firstName : req.body.firstName,
 						secondName : req.body.secondName,
 						lastName : req.body.lastName,
 						phone : req.body.phone,
 						email : req.body.email,
-						department : req.body.department,
-						hireDate : req.body.hireDate,
-						title : req.body.title,
-						address: req.body.address
+						address : req.body.address,
+						facNumber : req.body.facNumber,
+						subjectOfStudies : req.body.subjectOfStudies,
+						formOfEducation : req.body.formOfEducation,
+						startYear : req.body.startYear,
+						practiceProposal :null,
+						practiceRating: null,
+						masterProgram : null,
+						review : null,
+						application : null,
+						thesisProposal : null,
+						graduationWork : null,
+						reportAssignment : null
 					};
-					console.log(dataForTeacher);
-					teacher.addNewTeacher(dataForTeacher, function(error) {
+					student.addNewStudent(dataForStudent, function(error) {
 						if (error) {
 							res.send(400, error);
 						} else {
@@ -45,7 +53,7 @@ exports.addTeacher = function(req, res) {
 	});
 };
 
-exports.deleteTeacher = function(req, res) {
+exports.deleteStudent = function(req, res) {
 	var usernameToDelete = req.body.username;
 	user.findByUsername({
 		username : usernameToDelete
@@ -53,7 +61,7 @@ exports.deleteTeacher = function(req, res) {
 		if (error) {
 			res.send(400, error);
 		} else {
-			teacher.deleteTeacherById(object._id, function(error, result) {
+			student.deleteStudentById(object._id, function(error, result) {
 				if (error) {
 					res.send(400, error);
 				} else {
@@ -71,25 +79,33 @@ exports.deleteTeacher = function(req, res) {
 	});
 };
 
-exports.updateTeacher = function(req, res) {
+exports.updateStudent = function(req, res) {
 	var usernameToUpdate = req.body.username;
-	var dataForTeacher = {
-		firstName : req.body.firstName,
-		secondName : req.body.secondName,
-		lastName : req.body.lastName,
-		phone : req.body.phone,
-		email : req.body.email,
-		department : req.body.department,
-		hireDate : req.body.hireDate,
-		title: req.body.title,
-		address: req.body.address
+	var dataForStudent = {
+			firstName : req.body.firstName,
+			secondName : req.body.secondName,
+			lastName : req.body.lastName,
+			phone : req.body.phone,
+			email : req.body.email,
+			address : req.body.address,
+			facNumber : req.body.facNumber,
+			subjectOfStudies : req.body.subjectOfStudies,
+			formOfEducation : req.body.formOfEducation,
+			startYear : req.body.startYear,
+			practiceProposal :null,
+			practiceRating: null,
+			masterProgram : null,
+			review : null,
+			application : null,
+			thesisProposal : null,
+			graduationWork : null,
+			reportAssignment : null
 	};
 	user.findByUsername(usernameToUpdate, function(findError, object) {
 		if (findError) {
 			res.send(404, findError);
 		} else {
-			console.log("OBJECT:" + object);
-			teacher.updateTeacherData(object._id, dataForTeacher, function(
+			student.updateStudentData(object._id, dataForStudent, function(
 					error, result) {
 				if (error) {
 					res.send(400, error);

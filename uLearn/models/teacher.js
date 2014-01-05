@@ -62,7 +62,7 @@ exports.addNewTeacher = function(data, callback) {
 	});
 };
 
-exports.getAllUsers = function(callback) {
+exports.getAllTeachers = function(callback) {
 	var user = mongoose.model('Teacher');
 	user.findOne(function(error, result) {
 		if (error) {

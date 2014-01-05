@@ -367,7 +367,8 @@ var studentSchema = new Schema({
 	},
 
 	subjectOfStudies : {
-		type : String
+		type : String,
+		reqired: true
 	},
 
 	masterProgram : [ {
@@ -375,10 +376,12 @@ var studentSchema = new Schema({
 		ref : "Teacher"
 	} ],
 	formOfEducation : {
-		type : String
+		type : String,
+		required: true
 	},
 	startYear : {
-		type : Number
+		type : Number,
+		reqiured:true
 	},
 	workCompany : {
 		type : String

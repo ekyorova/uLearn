@@ -1,10 +1,12 @@
 var restify = require('restify');
 var teacherRouter = require('./routes/teacher');
+var studentRouter = require('./routes/student');
 var mongoose = require('mongoose');
 var db = require('./models/schemas');
 var server = restify.createServer({
   name: 'uLearn'
   });
+
 /**
  * Common Handlers
  */
@@ -20,5 +22,6 @@ server.listen(3000, function() {
 //server.post("/teacher", teacherRouter.addTeacher);
 server.del("/teacher", teacherRouter.deleteTeacher);
 server.post("/teacher", teacherRouter.updateTeacher);
-
-
+//server.post("/student", studentRouter.addStudent);
+server.del("/student", studentRouter.deleteStudent);
+server.post("/student", studentRouter.updateStudent);
