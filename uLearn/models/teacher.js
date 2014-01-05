@@ -86,6 +86,21 @@ exports.deleteTeacherById = function(id, callback) {
 
 exports.updateTeacherData= function(id, data, callback){
 	var teacher = mongoose.model('Teacher');
+	if (data.firstName === undefined) {
+		callback("firstName-not-defined");
+	} else if (data.secondName === undefined) {
+		callback("secondName-not-defined");
+	} else if (data.lastName === undefined) {
+		callback("lastName-not-defined");
+	} else if (data.phone === undefined) {
+		callback("phone-not-defined");
+	} else if (data.email === undefined) {
+		callback("email-not-defined");
+	} else if (data.department === undefined) {
+		callback("department-not-defined");
+	} else if (data.hireDate === undefined) {
+		callback("hireDate-not-defined");
+	}
 	teacher.update({_id:id}, 
 			{ $set: {
 				'firstName' : data.firstName,
@@ -94,7 +109,9 @@ exports.updateTeacherData= function(id, data, callback){
 				'phone' : data.phone,
 				'email' : data.email,
 				'department' : data.department,
-				'hireDate' : data.hireDate
+				'hireDate' : data.hireDate,
+				'title' : data.title,
+				'address': data.address
 			}
 			},
 			function(error, result) {

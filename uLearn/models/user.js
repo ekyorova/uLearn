@@ -97,22 +97,25 @@ exports.findByUsername = function(searchUsername, callback) {
 
 exports.updateUser = function(data, callback) {
 	var user = mongoose.model("User");
+	 if (data.password === undefined) {
+			callback("password-not-defined");
+		}
 	user.findOne({
-			username : data.username,
+		username : data.username,
 	}, function(error, result) {
-			saltAndHash(data.password, function(hash) {
-				user.update({
-					username : data.username
-				}, {
-					'password' : hash
-				}, function(error, result) {
-					if (error) {
-						callback(error);
-					} else {
-						callback(null, result);
-					}
-				});
+		saltAndHash(data.password, function(hash) {
+			user.update({
+				username : data.username
+			}, {
+				'password' : hash
+			}, function(error, result) {
+				if (error) {
+					callback(error);
+				} else {
+					callback(null, result);
+				}
 			});
+		});
 	});
 };
 
@@ -129,7 +132,9 @@ exports.getAllUsers = function(callback) {
 
 exports.deleteUserByUsername = function(username, callback) {
 	var user = mongoose.model('User');
-	user.remove({username : username}, function(error, result) {
+	user.remove({
+		username : username
+	}, function(error, result) {
 		if (error) {
 			callback(error);
 		} else {
