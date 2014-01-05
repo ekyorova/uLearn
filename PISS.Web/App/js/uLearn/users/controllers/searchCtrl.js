@@ -1,5 +1,5 @@
-﻿/*global angular, _*/
-(function (angular, _) {
+﻿/*global angular*/
+(function (angular) {
   'use strict';
 
   function UsersSearchCtrl($scope, $state, $stateParams, User) {
@@ -20,4 +20,4 @@
   UsersSearchCtrl.$inject = ['$scope', '$state', '$stateParams', 'User'];
 
   angular.module('users').controller('UsersSearchCtrl', UsersSearchCtrl);
-}(angular, _));
+}(angular));
