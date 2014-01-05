@@ -414,8 +414,103 @@ var studentSchema = new Schema({
 		status : {
 			type : String
 		}
-	}
+	},
 
+	thesisProposal : {
+		fileName : {
+			type : String
+		},
+		consultant: {
+			type : String
+		},
+		annotation: {
+			type : String
+		},
+		goal: {
+			type : String
+		},
+		tasks: {
+			type : String
+		},
+		conditions: {
+			type : String
+		},
+		realizationDate: {
+			type : String
+		},
+		proposalDate: {
+			type : String
+		}
+	},
+	
+	graduationWork : {
+		thesisFilename : {
+			type : String
+		}, 
+		directorOfStudies : {
+			type : mongoose.Schema.ObjectId,
+			ref : "Teacher"
+		},
+		reviewer : {
+			type : mongoose.Schema.ObjectId,
+			ref : "Teacher"
+		},
+		
+		themeNameBg : {
+			type : String
+		},
+		
+		themeNameEn: {
+			type : String
+		},
+		
+		defenceDate: {
+			type : String
+		},
+		
+		themeNameEn: {
+			type : String
+		},
+		
+		defenced: {
+			type: Boolean
+		},
+		
+		ratingThesis: {
+				type : String
+		},
+		
+		ratingGeneral: {
+			type: String
+		},
+		
+		summaryBg: {
+			type: String
+		},
+		
+		summaryEn: {
+			type: String
+		}
+	
+	},
+
+	reportAssignment: {
+		filename: {
+			type: String
+		},
+		
+		report: {
+			type: String
+		},
+		
+		reportDate: {
+			type: String
+		},
+		
+		participationCons: {
+			type: String
+		}
+	}
 });
 
 module.exports = mongoose.model('Student', studentSchema);
