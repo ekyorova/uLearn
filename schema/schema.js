@@ -1,7 +1,6 @@
 use user
 db.createCollection("username")
 db.createCollection("password")
-db.createCollection("email")
 db.createCollection("usertype")
 <!-- Multiple values("teacher", "phd", "student", "admin") -->
 db.createCollection("active")
