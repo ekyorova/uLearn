@@ -95,31 +95,16 @@ exports.findByUsername = function(searchUsername, callback) {
 	});
 }
 
-exports.updateAccount = function(id, data, callback) {
+exports.updateUser = function(data, callback) {
 	var user = mongoose.model("User");
-	if (data.username === undefined) {
-		callback("username-not-defined");
-	} else if (data.password === undefined) {
-		callback("password-not-defined");
-	} else if (data.usertype === undefined) {
-		callback("usertype-not-defined");
-	}
 	user.findOne({
 			username : data.username,
-			_id : {
-				$not : id}
 	}, function(error, result) {
-		if (result) {
-			if (result.username == req.session.user.username) {
-				callback("username-exists");
-			}
-		} else {
 			saltAndHash(data.password, function(hash) {
-				users.update({
-					_id : id
+				user.update({
+					username : data.username
 				}, {
-					'username' : data.username,
-					'password' : hash,
+					'password' : hash
 				}, function(error, result) {
 					if (error) {
 						callback(error);
@@ -128,7 +113,6 @@ exports.updateAccount = function(id, data, callback) {
 					}
 				});
 			});
-		}
 	});
 };
 
