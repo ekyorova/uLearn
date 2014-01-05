@@ -12,13 +12,11 @@ exports.addTeacher = function(req, res) {
 	};
 	user.addNewUser(dataForUser, function(error) {
 		if (error) {
-			console.log(error);
-			res.send(error, 400);
+			res.send(400, error);
 		} else {
 			user.findByUsername(dataForUser.username, function(findError, object) {
 				if (findError) {
-					console.log(findError);
-					res.send(findError, 404);
+					res.send(404, findError);
 				} else {
 					var dataForTeacher = {
 							_id: object._id,
@@ -33,19 +31,36 @@ exports.addTeacher = function(req, res) {
 					console.log(dataForTeacher);
 					teacher.addNewTeacher(dataForTeacher, function(error) {
 						if (error) {
-							console.log(error);
-							res.send(400);
+							res.send(400, error);
 						} else {
-							res.send(200);
+							res.send(200, 'ok');
 						}
 					});
 				}
 			});
 		}
 	});
-}
+};
 
-exports.test = function(req, res) {
-	var user = require("../models/user.js");
-	user.test();
-} 
+exports.deleteTeacher = function(req, res) {
+	var usernameToDelete = req.body.username;
+	user.findByUsername({username : usernameToDelete}, function(error, object) {
+		if (error) {
+			res.send(400, error);
+		} else {
+			teacher.deleteTeacherById(object._id, function(error,result) {
+				if (error) {
+					send(400, error);
+				} else {
+					user.deleteUserByUsername(object.username, function(error, result) {
+						if (error) {
+							res.send(400, error);
+						} else {
+							res.send(200, 'ok')
+						}						
+					});
+					}
+			});
+		}
+	});
+};

@@ -38,9 +38,7 @@ exports.manualLogin = function(username, password, callback) {
 		}
 	});
 };
-exports.test = function() {
-	res.send('ok',200);
-}
+
 exports.addNewUser = function(data, callback) {
 	var user = mongoose.model("User");
 	if (data.username === undefined) {
@@ -87,7 +85,8 @@ exports.addNewUser = function(data, callback) {
 
 exports.findByUsername = function(searchUsername, callback) {
 	var user = mongoose.model("User");
-	user.findOne({username : searchUsername}, function(error, result) {
+	console.log(searchUsername);
+	user.findOne(searchUsername, function(error, result) {
 		if (error) {
 			callback(error);
 		} else {
@@ -140,6 +139,17 @@ exports.getAllUsers = function(callback) {
 			callback(error);
 		} else {
 			callback(null, result);
+		}
+	});
+};
+
+exports.deleteUserByUsername = function(username, callback) {
+	var user = mongoose.model('User');
+	user.remove({username : username}, function(error, result) {
+		if (error) {
+			callback(error);
+		} else {
+			callback(null, result)
 		}
 	});
 };

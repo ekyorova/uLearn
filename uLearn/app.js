@@ -18,6 +18,6 @@ server.listen(3000, function() {
 });
 
 server.post("/teacher", teacherRouter.addTeacher);
-
+server.del("/teacher", teacherRouter.deleteTeacher);
 
 

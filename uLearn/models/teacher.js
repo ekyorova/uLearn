@@ -102,12 +102,23 @@ exports.updateAccount = function(id, data, callback) {
 };
 
 exports.getAllUsers = function(callback) {
-	var user = mongoose.model('User');
-	user.find(function(error, result) {
+	var user = mongoose.model('Teacher');
+	user.findOne(function(error, result) {
 		if (error) {
 			callback(error);
 		} else {
 			callback(null, result);
+		}
+	});
+};
+
+exports.deleteTeacherById = function(id, callback) {
+	var teacher = mongoose.model('Teacher');
+	teacher.remove({_id : id}, function(error, result) {
+		if (error) {
+			callback(error);
+		} else {
+			callback(null);
 		}
 	});
 };
