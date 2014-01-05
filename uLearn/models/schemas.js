@@ -107,7 +107,8 @@ var phdSchema = new Schema({
 		type : String
 	},
 	department : {
-		type : String
+		type : String,
+		required: true
 	},
 	startDate : {
 		type : String

@@ -1,6 +1,7 @@
 var restify = require('restify');
 var teacherRouter = require('./routes/teacher');
 var studentRouter = require('./routes/student');
+var phdRouter = require('./routes/phd');
 var mongoose = require('mongoose');
 var db = require('./models/schemas');
 var server = restify.createServer({
@@ -25,3 +26,6 @@ server.post("/teacher", teacherRouter.updateTeacher);
 //server.post("/student", studentRouter.addStudent);
 server.del("/student", studentRouter.deleteStudent);
 server.post("/student", studentRouter.updateStudent);
+//server.post("/phd", phdRouter.addPhd);
+server.del("/phd", phdRouter.deletePhd);
+server.post("/phd", phdRouter.updatePhd);
