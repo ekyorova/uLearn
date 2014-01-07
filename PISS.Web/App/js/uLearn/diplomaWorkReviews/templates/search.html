@@ -1,7 +1,12 @@
 ﻿<div class="container page-content">
   <sc-datatable ng-model="diplomaWorkReviews" filterable="true" pageable="true" sortable="true" dynamic-columns="true">
-    <sc-column data="diplomaWorkTitle" title="uLearn.diplomaWorkReviews.diplomaWorkTitle" ng-href="/{{diplomaWorkReviewId}}">
-    </sc-dolumn>
+    <sc-column data="diplomaWorkTitle" title="uLearn.diplomaWorkReviews.diplomaWorkTitle">
+    </sc-column>
+    <sc-column data="theoretical" title="uLearn.diplomaWorkReviews.theoretical">
+    </sc-column>
+    <sc-column>
+      <button type="button" class="btn-xs btn-info" ng-click="editDiplomaWorkReview(item)" l10n-text="users.search.edit"></button>
+    </sc-column>
   </sc-datatable>
   <table id="example"></table>
 </div>
