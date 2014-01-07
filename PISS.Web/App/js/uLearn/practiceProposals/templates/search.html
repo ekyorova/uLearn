@@ -1,0 +1,10 @@
+﻿<div class="container page-content">
+  <sc-datatable ng-model="practiceProposals" filterable="true" pageable="true" sortable="true" dynamic-columns="true">
+    <sc-column data="company" title="uLearn.diplomaWorkProposals.subject">
+    </sc-column>    
+    <sc-column>
+      <button type="button" class="btn-xs btn-info" ng-click="editDiplomaWorkProposal(item)" l10n-text="users.search.edit"></button>
+    </sc-column>
+  </sc-datatable>
+  <table id="example"></table>
+</div>

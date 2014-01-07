@@ -10,6 +10,8 @@
     'users',
     'diplomaWorkProposals',
     'diplomaWorkReviews',
+    'practiceProposals',
+    'practiceRatings',
     'l10n',
     'l10n-tools',
     'l10nTexts_bg-bg'
@@ -33,8 +35,8 @@
           { text: 'navbar.diplomaWorkReviews', state: 'diplomaWorkReviews.search' }
         ]})
         .addItem({ text: 'navbar.probationPractices', url: '/probationPractices', items: [
-          { text: 'navbar.probationPracticeProposals', url: '/probationPractices' },
-          { text: 'navbar.probationPracticeGrades', url: '/probationPracticeGrades' }
+          { text: 'navbar.probationPracticeProposals', state: 'practiceProposals.search' },
+          { text: 'navbar.probationPracticeGrades', state: 'practiceRatings.search' }
         ]})
         .addItem({ text: 'navbar.phds', url: '/phDs', items: [
           { text: 'navbar.commonWorkPlan', url: '/commonWorkPlans' },
