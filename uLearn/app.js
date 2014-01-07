@@ -20,12 +20,12 @@ server.listen(3000, function() {
 	console.log('Restify server listening on port 3000.');
 });
 
-//server.post("/teacher", teacherRouter.addTeacher);
+server.post("/teacher", teacherRouter.addTeacher);
 server.del("/teacher", teacherRouter.deleteTeacher);
-server.post("/teacher", teacherRouter.updateTeacher);
-//server.post("/student", studentRouter.addStudent);
+server.put("/teacher", teacherRouter.updateTeacher);
+server.post("/student", studentRouter.addStudent);
 server.del("/student", studentRouter.deleteStudent);
-server.post("/student", studentRouter.updateStudent);
-//server.post("/phd", phdRouter.addPhd);
+server.put("/student", studentRouter.updateStudent);
+server.post("/phd", phdRouter.addPhd);
 server.del("/phd", phdRouter.deletePhd);
-server.post("/phd", phdRouter.updatePhd);
+server.put("/phd", phdRouter.updatePhd);
