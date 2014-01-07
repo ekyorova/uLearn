@@ -60,7 +60,7 @@
           experimentalDetails: 'Описание на експеримента',
           resultsPresentation: 'Представяне на резултатите',
           resultsInterpretation: 'Интерпретация на резултатите',
-          commonMark:'Обща оценка',
+          averageMark:'Обща оценка:',
           generalOpinion: 'Обобщено мнение:',
           questions: 'Въпроси:'
         }
