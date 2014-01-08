@@ -7,8 +7,8 @@
     '$resource',
     function ($resource) {
       return $resource(
-      '/api/practiceProposals/:practiceRatingId',
-      {practiceProposalId:'@practiceRatingId'}
+      '/api/practiceRatings/:practiceRatingId',
+      {practiceRatingId:'@practiceRatingId'}
       );
     }
   ]);

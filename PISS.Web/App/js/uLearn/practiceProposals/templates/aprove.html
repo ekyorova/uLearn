@@ -1,27 +1,54 @@
 ﻿<div class="container page-content">
   <div class="well">
-  <div class="span8">
-      <h1 l10n-text="uLearn.diplomaWorkProposals.subject"></h1>
-      <p>{{diplomaWorkProposal.subject}}</p>  
-	  <hr>
-      <h1 l10n-text="uLearn.diplomaWorkProposals.anotation"></h1>
-	  <p>{{diplomaWorkProposal.anotation}}</p>  
-	  <hr>
-      <h1 l10n-text="uLearn.diplomaWorkProposals.goal"></h1>
-      <p>{{diplomaWorkProposal.goal}}</p>  
-	  <hr>
-      <h1 l10n-text="uLearn.diplomaWorkProposals.problems"></h1>
-      <p>{{diplomaWorkProposal.problems}}</p>  
-	  <hr>
-      <h1 l10n-text="uLearn.diplomaWorkProposals.limitations"></h1>
-      <p>{{diplomaWorkProposal.limitations}}</p>  
-	  <hr>
-      <h1 l10n-text="uLearn.diplomaWorkProposals.term"></h1>
-      <p>{{diplomaWorkProposal.term}}</p>
+    <div class="span8">
+
+      <h3 l10n-text="uLearn.practiceProposals.title"></h3>
+      <table class="table">
+        <tr>
+          <td class="col-sm-3" > <label class="pull-right" l10n-text="uLearn.practiceProposals.company"></label></td>
+          <td class="col-sm-9" >{{practiceProposal.company}}</td>
+        </tr>
+
+        <tr>
+          <td class="col-sm-3" > <label class="pull-right" l10n-text="uLearn.practiceProposals.companyInfo"></label></td>
+          <td class="col-sm-9" >{{practiceProposal.companyInfo}}</td>
+        </tr>
+
+        <tr>
+          <td class="col-sm-3" > <label class="pull-right" l10n-text="uLearn.practiceProposals.trainee"></label></td>
+          <td class="col-sm-9" >{{practiceProposal.trainee}}</td>
+        </tr>
+
+        <tr>
+          <td class="col-sm-3" > <label class="pull-right" l10n-text="uLearn.practiceProposals.subject"></label></td>
+          <td class="col-sm-9" >{{practiceProposal.subject}}</td>
+        </tr>
+
+        <tr>
+          <td class="col-sm-3" > <label class="pull-right" l10n-text="uLearn.practiceProposals.goal"></label></td>
+          <td class="col-sm-9" >{{practiceProposal.goal}}</td>
+        </tr>
+
+        <tr>
+          <td class="col-sm-3" > <label class="pull-right" l10n-text="uLearn.practiceProposals.tasks"></label></td>
+          <td class="col-sm-9" >{{practiceProposal.tasks}}</td>
+        </tr>
+
+        <tr>
+          <td class="col-sm-3" > <label class="pull-right" l10n-text="uLearn.practiceProposals.condition"></label></td>
+          <td class="col-sm-9" >{{practiceProposal.condition}}</td>
+        </tr>
+
+        <tr>
+          <td class="col-sm-3" > <label class="pull-right" l10n-text="uLearn.practiceProposals.duration"></label></td>
+          <td class="col-sm-9" >{{practiceProposal.duration}}</td>
+        </tr>
+
+        <tr>
+          <td class="col-sm-3" > <label class="pull-right" l10n-text="uLearn.practiceProposals.workPlace"></label></td>
+          <td class="col-sm-9" >{{practiceProposal.workPlace}}</td>
+        </tr>
+      </table>
     </div>
-  </div>
-  <div class="btn-group pull-right">
-    <button id="saveBtn" type="button" class="btn btn-primary" ng-click="save()" l10n-text="users.edit.save"></button>
-    <button id="cancelBtn" type="button" class="btn btn-default" ng-click="cancel()" l10n-text="users.edit.cancel"></button>
   </div>
 </div>

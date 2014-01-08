@@ -1,47 +1,87 @@
 ﻿<div class="container page-content">
-  <form name="diplomaWorkProposalForm" novalidate class="form-horizontal well" role="form">
+
+  <form name="practiceRatingForm" novalidate class="form-horizontal well" role="form">
     <div class="form-group">
-      <label class="control-label col-sm-3" l10n-text="uLearn.diplomaWorkProposals.subject"></label>
-      <div class="col-sm-4">
-        <sc-text-area name="subject"
-          ng-model="diplomaWorkProposal.subject" ng-required="true" rows="2">
-        </sc-text-area>
-        <span name="subjectValidValidationSpan" ng-show="diplomaWorkProposalForm.subject.$invalid" class="glyphicon glyphicon-warning-sign" title="{{form.subject.$error.required && 'Задължително поле'}}"></span>
-      </div>
+      <label class="control-label col-sm-3" for="subject" l10n-text="uLearn.practiceRatings.subject"></label>
+      <div class="col-sm-7">
+          тук се добався динамично темата
+      </div>  
     </div>
+
     <div class="form-group">
-      <label class="control-label col-sm-3" l10n-text="uLearn.diplomaWorkProposals.anotation"></label>
-      <div class="col-sm-4">
-        <sc-text-area ng-model="diplomaWorkProposal.anotation" rows="10"></sc-text-area>
-      </div>
+      <label class="control-label col-sm-3" for="trainee" l10n-text="uLearn.practiceProposals.trainee"></label>
+      <div class="col-sm-7">
+    
+      </div>  
     </div>
+
     <div class="form-group">
-      <label class="control-label col-sm-3" l10n-text="uLearn.diplomaWorkProposals.goal"></label>
-      <div class="col-sm-4">
-        <sc-text-area ng-model="diplomaWorkProposal.goal" rows="10"></sc-text-area>
+      <label class="control-label col-sm-3" for="completion" l10n-text="uLearn.practiceRatings.completion"></label>
+      <div class="col-sm-7">
+        <sc-text-area ng-model="practiceRating.completion" id="completion" rows="4"></sc-text-area>
+      </div>  
+    </div>
+
+    
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="results" l10n-text="uLearn.practiceRatings.results"></label>
+      <div class="col-sm-7">
+        <sc-text-area ng-model="practiceRating.results" id="results" rows="4"></sc-text-area>
       </div>
     </div>
-	<div class="form-group">
-      <label class="control-label col-sm-3" l10n-text="uLearn.diplomaWorkProposals.problems"></label>
-      <div class="col-sm-4">
-        <sc-text-area ng-model="diplomaWorkProposal.problems" rows="10"></sc-text-area>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="finishedOnTime" l10n-text="uLearn.practiceRatings.finishedOnTime"></label>
+      <div class="col-sm-7">
+        <select class="form-control">
+          <option>Да</option>
+          <option>Не</option>
+        </select>
       </div>
     </div>
-	<div class="form-group">
-      <label class="control-label col-sm-3" l10n-text="uLearn.diplomaWorkProposals.limitations"></label>
-      <div class="col-sm-4">
-        <sc-text-area ng-model="diplomaWorkProposal.limitations" rows="10"></sc-text-area>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="reasons" l10n-text="uLearn.practiceRatings.reasons"></label>
+      <div class="col-sm-7">
+        <sc-text-area ng-model="practiceRating.reasons" id="reasons" rows="4"></sc-text-area>
       </div>
     </div>
-	<div class="form-group">
-      <label class="control-label col-sm-3" l10n-text="uLearn.diplomaWorkProposals.term"></label>
-      <div class="col-sm-4">
-        <sc-text ng-model="diplomaWorkProposal.term"></sc-text>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="aquiredSkills" l10n-text="uLearn.practiceRatings.aquiredSkills"></label>
+      <div class="col-sm-7">
+        <sc-text-area ng-model="practiceRating.aquiredSkills" id="aquiredSkills" rows="4"></sc-text-area>
       </div>
-    </div>	
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="opinion" l10n-text="uLearn.practiceRatings.opinion"></label>
+      <div class="col-sm-7">
+        <sc-text-area ng-model="practiceRating.opinion" id="opinion" rows="4"></sc-text-area>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="overallRatings" l10n-text="uLearn.practiceRatings.overallRatings"></label>
+      <div class="col-sm-7">
+        <sc-text ng-model="practiceRating.overallRatings" id="overallRatings"></sc-text>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-3" for="recommendations" l10n-text="uLearn.practiceRatings.recommendations"></label>
+      <div class="col-sm-7">
+         <sc-text-area ng-model="practiceRating.recommendations" id="recommendations" rows="4"></sc-text-area>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="btn-group pull-right">
+        <button id="saveBtn" type="button" class="btn btn-primary" ng-click="save()" l10n-text="users.edit.save"></button>
+        <button id="cancelBtn" type="button" class="btn btn-default" ng-click="cancel()" l10n-text="users.edit.cancel"></button>
+      </div>
+    </div>
+
   </form>
-  <div class="btn-group pull-right">
-    <button id="saveBtn" type="button" class="btn btn-primary" ng-click="save()" l10n-text="users.edit.save"></button>
-    <button id="cancelBtn" type="button" class="btn btn-default" ng-click="cancel()" l10n-text="users.edit.cancel"></button>
-  </div>
-</div>
+ </div>

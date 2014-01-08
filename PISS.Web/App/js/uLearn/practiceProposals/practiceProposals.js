@@ -44,7 +44,7 @@
       })
       .state({
         name: 'practiceProposals.edit',
-        title: 'Редакция',
+        title: 'Преглед',
         parent: 'practiceProposals',
         url: '/:practiceProposalId',
         views: {

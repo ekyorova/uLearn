@@ -12,7 +12,7 @@
         tasks: 'Kur za PISS',
         condition: 'Kur za PISS',
         duration: 'Kur za PISS',
-        workplace: 'Kur za PISS'
+        workPlace: 'Kur za PISS'
       }, {
         practiceProposalId: 2,
         company: 'ADASDAD',
@@ -23,7 +23,7 @@
         tasks: 'Kur za PISS',
         condition: 'Kur za PISS',
         duration: 'Kur za PISS',
-        workplace: 'Kur za PISS'
+        workPlace: 'Kur za PISS'
       }, {
         practiceProposalId: 3,
         company: 'Zagorka',
@@ -34,7 +34,7 @@
         tasks: 'Kur za PISS',
         condition: 'Kur za PISS',
         duration: 'Kur za PISS',
-        workplace: 'Kur za PISS'
+        workPlace: 'Kur za PISS'
       }],
       nextPracticeProposalId = 4;
 
