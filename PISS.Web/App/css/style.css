@@ -249,3 +249,7 @@ i.tree-image-close
 .td-bold{
   font-weight: bold;
 }
+
+.custom-breadcrumb-bar{
+	background:#e4e4e4 !important;
+}

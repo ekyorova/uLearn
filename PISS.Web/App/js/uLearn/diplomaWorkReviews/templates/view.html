@@ -73,14 +73,20 @@
                             <td class="text-right col-md-9"><h4><strong l10n-text="uLearn.diplomaWorkReviews.averageMark"> </strong></h4></td>
                             <td class="text-center text-danger" ><h4>{{averageMarkResult()}}</h4></td>
                         </tr>
+                        <tr>
+                          <td class="col-sm-3" > <label l10n-text="uLearn.diplomaWorkReviews.generalOpinion"></label></td>
+                          <td class="col-sm-9" >{{diplomaWorkReview.duration}}</td>
+                        </tr>
+
+                        <tr>
+                          <td class="col-sm-3" > <label l10n-text="uLearn.diplomaWorkReviews.questions"></label></td>
+                          <td class="col-sm-9" >{{diplomaWorkReview.workPlace}}</td>
+                        </tr>
                     </tbody>
                 </table>
     <hr>            
-<hr> 
+    <hr> 
 
-    <div class="btn-group pull-right">
-      <button id="saveBtn" type="button" class="btn btn-primary" ng-click="save()" l10n-text="users.edit.save"></button>
-      <button id="cancelBtn" type="button" class="btn btn-default" ng-click="cancel()" l10n-text="users.edit.cancel"></button>
-    </div>
+    
   </div>
 </div>
